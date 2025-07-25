@@ -1,5 +1,7 @@
+// App.js
 import React, { useState } from 'react';
-import Layout from './components/Layout.jsx';
+import Layout from './components/Layout.jsx'; // Assurez-vous que le chemin est correct
+
 import './index.css';
 
 function App() {
@@ -10,11 +12,11 @@ function App() {
   };
 
   return (
+    // L'attribut data-theme est toujours sur la div englobante
     <div data-theme={theme}>
-      <button className="theme-toggle" onClick={toggleTheme}>
-        {theme === 'light' ? '🌙 Mode sombre' : '☀️ Mode clair'}
-      </button>
-      <Layout />
+      {/* Passez l'état du thème et la fonction de bascule au Layout */}
+      <Layout currentTheme={theme} toggleTheme={toggleTheme} />
+    
     </div>
   );
 }

@@ -1,16 +1,22 @@
+import React from 'react';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import MainSection from './MainSection.jsx';
-
-function Layout() {
+import Composant from './Composant.jsx';
+// Le Layout reçoit les props et les transmet au Header
+function Layout({ currentTheme, toggleTheme }) {
   return (
     <div className="layout">
       <header>
-        <Header />
+        {/* Passez les props au Header */}
+        <Header currentTheme={currentTheme} toggleTheme={toggleTheme} />
       </header>
       <section>
         <MainSection />
       </section>
+      <div>
+         <Composant/>
+      </div>
       <footer>
         <Footer />
       </footer>

@@ -1,14 +1,14 @@
 @import 'normalize.css';
 
-/* === Thème clair par défaut === */
+/* === Thème clair par défaut (mode lumineux) === */
 :root {
-  --color-bg: #fefefe;
-  --color-surface: #ffffff;
-  --color-primary: #b35700; /* Orange brun */
-  --color-secondary: #242020;
-  --color-text: #000000;
-  --color-border: #000000;
-  --color-border-light: #cccccc;
+  --color-bg: #fefefe; /* Fond très clair */
+  --color-surface: #ffffff; /* Surface claire */
+  --color-primary: #007bff; /* Bleu vif pour l'accentuation */
+  --color-secondary: #6c757d; /* Gris pour éléments secondaires */
+  --color-text: #fafafa; /* Texte sombre pour lisibilité */
+  --color-border: #adb5bd; /* Bordure moyenne */
+  --color-border-light: #e9ecef; /* Bordure très claire */
 
   --font-size: 18px;
   --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -16,13 +16,13 @@
 
 /* === Thème sombre === */
 [data-theme="dark"] {
-  --color-bg: #121212;
-  --color-surface: #1e1e1e;
-  --color-primary: #ff8c00; /* Orange vif pour contraste */
-  --color-secondary: #2e2e2e;
-  --color-text: #ffffff;
-  --color-border: #ffffff;
-  --color-border-light: #444444;
+  --color-bg: #1a1a1a; /* Fond très sombre */
+  --color-surface: #2b2b2b; /* Surface sombre */
+  --color-primary: #17a2b8; /* Cyan pour l'accentuation (contraste sur sombre) */
+  --color-secondary: #6c757d; /* Gris pour éléments secondaires (peut rester similaire ou être légèrement ajusté si nécessaire) */
+  --color-text: #f8f9fa; /* Texte très clair pour lisibilité */
+  --color-border: #495057; /* Bordure sombre */
+  --color-border-light: #343a40; /* Bordure très sombre */
 }
 
 * {
@@ -43,20 +43,34 @@ header,
 footer {
   display: flex;
   justify-content: center;
-  height: 5vh;
+  /* height: 5vh; */ /* Supprimez ou ajustez cette hauteur fixe si elle est trop petite */
   align-items: center;
   border-left: 3vw solid var(--color-border);
   border-right: 3vw solid var(--color-border);
   background-color: var(--color-surface);
+  /* Ajouts pour le positionnement du bouton */
+  flex-direction: column; /* Pour empiler les éléments du header verticalement */
+  height: auto; /* Permet au header de s'adapter au contenu */
+  padding-bottom: 1rem; /* Ajoute un peu d'espace sous le bouton */
 }
 
 /* MENU */
+.menu {
+  display: flex; /* Active Flexbox pour le conteneur de navigation */
+  flex-direction: column; /* Organise les éléments (liste et bouton) en colonne */
+  align-items: center; /* Centre horizontalement les éléments enfants */
+  gap: 1rem; /* Espace entre la liste des liens et le bouton */
+  width: 100%; /* S'assure que le menu prend toute la largeur disponible */
+}
+
 .menu__liste {
   list-style: none;
   display: flex;
   gap: 2rem;
   margin: 0;
   padding: 0;
+  justify-content: center; /* Centre les liens du menu horizontalement */
+  width: 100%; /* Assure que la liste prend toute la largeur */
 }
 
 .menu__item {
@@ -68,11 +82,11 @@ footer {
   text-decoration: none;
   padding: 0.5rem 1rem;
   background-color: var(--color-primary);
-  border-radius: 4px;
   transition: background 0.3s ease;
 }
 
 .menu__lien:hover {
+  color: var(--color-text);
   background-color: var(--color-secondary);
 }
 
@@ -80,21 +94,31 @@ footer {
 .conteneur {
   height: 90vh;
   background-color: var(--color-surface);
+   border-left: 3vw solid var(--color-border);
+  border-right: 3vw solid var(--color-border);
+
 }
 
 /* Toggle bouton */
 .theme-toggle {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: var(--color-primary);
-  color: var(--color-text);
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
+background: #fcff6c;
+    color: var(--color-text);
+    border: none;
+    padding: 10px;
+    border-radius: 38px;
+    cursor: pointer;
 }
 
 .theme-toggle:hover {
   background: var(--color-secondary);
+}
+
+/**/
+.composant_toggle{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
